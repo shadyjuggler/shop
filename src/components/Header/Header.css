@@ -1,0 +1,27 @@
+.header {
+  background-image: url(../../resources/green-abstract.jpg);
+  background-position: center -550px;
+  height: 80px;
+  padding: 20px 0px;
+}
+.header .container {
+  display: flex;
+  justify-content: space-between;
+}
+.header-logo {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.header-logo-text {
+  font-weight: 300;
+}
+.header-logo-text:hover {
+  transition: 0.1s;
+  color: #31b3b3;
+}
+.header-btns {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}

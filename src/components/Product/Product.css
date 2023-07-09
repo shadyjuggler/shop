@@ -1,0 +1,68 @@
+.Product {
+  position: relative;
+  width: 380px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  padding: 50px 20px 20px 20px;
+  transition: 0.1s;
+}
+.Product-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url(../../resources/green-abstract.jpg);
+  background-position: 84% 50%;
+  width: 100%;
+  height: 50px;
+}
+.Product-main {
+  margin-top: 20px;
+}
+.Product-main-name {
+  font-weight: 300;
+  font-size: 28px;
+}
+.Product-main-sku {
+  font-size: 18px;
+  color: #888787;
+}
+.Product-descr {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.Product-descr-size {
+  color: #888787;
+}
+.Product-descr-price {
+  font-size: 18px;
+  color: #31b3b3;
+}
+.Product:hover {
+  box-shadow: rgba(25, 95, 95, 0.3) 0px 48px 100px 0px;
+}
+.Product .delete-checkbox {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  width: 22px;
+  height: 22px;
+  background-color: #F5FFFA;
+  border: 3px solid transparent;
+  border-radius: 50%;
+}
+.Product .delete-checkbox:checked {
+  background-color: #1d8f8f;
+  border: 3px solid #F5FFFA;
+}
+.Product #divider {
+  margin: 0 auto;
+  margin-top: 20px;
+  height: 1px;
+  width: 100%;
+  background-color: #e6e6e6;
+}

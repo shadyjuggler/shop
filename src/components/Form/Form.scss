@@ -1,0 +1,93 @@
+.Form {
+    margin-top: 100px;
+
+    #special-button {
+        position: absolute;
+        top: -153px;
+        right: 125px;
+        // right: calc(1.2vw * -10);
+        // transform: translateY(-600px);
+        z-index: 2;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+    }
+
+    #product_form {
+        // position: relative;
+        min-width: 500px;
+        min-height: 650px;
+        padding: 0 60px 40px 60px;
+        box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+        border-radius: 20px;
+
+        .bg {
+            background-image: url(../../resources/green-abstract.jpg);
+            background-position: 84% 50%;
+            transform: translate(-60px);
+            width: 131.6%;
+            height: 60px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .form-field {
+            position: relative;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+
+            label {
+                font-size: 20px;
+            }
+
+            input,
+            select {
+                margin-top: 10px;
+                // width: 300px;
+                height: 40px;
+                border: none;
+                outline: none;
+                background-color: #ceeeee;
+                border-radius: 5px;
+                padding: 2px 15px 2px 15px;
+
+                &::placeholder {
+                    color: rgb(65, 65, 65);
+                }
+            }
+
+            .errorInput {
+                background-color: rgb(248, 210, 210);
+            }
+
+            .errorMessage {
+                position: absolute;
+                top: 5px;
+                right: 0;
+                font-size: 14px;
+                background-color: rgb(204, 98, 98);
+                border: 2px solid rgb(196, 11, 11);
+                border-radius: 5px;
+                padding: 0px 3px;
+                color: white;
+            }
+
+
+        }
+
+        .submitMessage {
+            text-align: center;
+            margin-top: 20px;
+            padding: 2px 5px;
+            background-color: rgb(95, 185, 95);
+            border: 2px solid rgb(40, 163, 40);
+            border-radius: 5px;
+            color: white;
+            font-size: 14px;
+        }
+    }
+
+}

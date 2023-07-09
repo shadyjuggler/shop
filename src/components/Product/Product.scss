@@ -1,0 +1,66 @@
+.Product {
+    position: relative;
+    width: 380px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    padding: 50px 20px 20px 20px;
+    transition: .1s;
+    &-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: url(../../resources/green-abstract.jpg);
+        background-position: 84% 50%;
+        width: 100%;
+        height: 50px;
+    }
+    &-main {
+        margin-top: 20px;
+        &-name {
+            font-weight: 300;
+            font-size: 28px; 
+        }
+        &-sku {
+            font-size: 18px;
+            color: #888787;
+        }
+    }
+    &-descr {
+        margin-top: 15px;
+        display: flex;
+        justify-content: space-between;
+        &-size {
+            color: #888787;
+        }
+        &-price {
+            font-size: 18px;
+            color: #31b3b3;
+        }
+    }
+    &:hover {
+        box-shadow: rgba(25, 95, 95, 0.3) 0px 48px 100px 0px;
+    }
+    .delete-checkbox {
+        appearance: none;
+        position: absolute;
+        top: 15px;
+        right: 30px;
+        width: 22px;
+        height: 22px;
+        background-color: #F5FFFA;
+        border: 3px solid transparent;
+        border-radius: 50%;
+        &:checked {
+            background-color: #1d8f8f;
+            border: 3px solid #F5FFFA;
+        }
+    }
+    #divider {
+        margin: 0 auto;
+        margin-top: 20px;
+        height: 1px;
+        width: 100%;
+        background-color: #e6e6e6;
+    }
+}
