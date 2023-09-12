@@ -1,5 +1,5 @@
 .Form {
-    margin-top: 100px;
+    padding: 100px 0px;
 
     #special-button {
         position: absolute;
@@ -17,10 +17,11 @@
 
     #product_form {
         // position: relative;
-        min-width: 500px;
+        max-width: 500px;
+        width: 100%;
         min-height: 650px;
         padding: 0 60px 40px 60px;
-        box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
         border-radius: 20px;
 
         .bg {
@@ -83,7 +84,6 @@
             margin-top: 20px;
             padding: 2px 5px;
             background-color: rgb(95, 185, 95);
-            border: 2px solid rgb(40, 163, 40);
             border-radius: 5px;
             color: white;
             font-size: 14px;

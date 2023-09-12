@@ -1,43 +1,76 @@
-import { useState } from "react";
+// Import native react hooks
+import { useState, useEffect } from "react";
+
 //Special hook for forms
 import { useForm } from "react-hook-form";
 
+// Import form styles
 import "./Form.scss";
-import DBService from "../../services/DBService";
+
+// Import default form inputs
 import formInputs from "../../services/formInputs";
+
+// Import form option for uniqe type like: Furniture, DVD, BOOK
 import specialFormOptions from "../../services/specialFormOptions";
 
 function Form() {
-	const [option, setOption] = useState("DVD");
+	const [option, setOption] = useState("size");
 	const [submitMessage, setSubmitMessage] = useState("");
 	const {
 		register,
+		unregister,
 		handleSubmit,
 		formState: { errors },
 	} = useForm();
 
-	const db = new DBService();
-	console.log("render")
+	console.log("reder")
 
-	//Import all form inputs data
+	//Get all form inputs data
 	const allFromInputs = formInputs();
-	//Import all special options data
-	const allFormOptions = specialFormOptions();
 
+	//Get all special options data
+	const allFormOptionInputs = specialFormOptions();
+
+	useEffect(() => {
+		console.log("option changed")
+
+		// Get all possible optional inputs id
+		const allOptionalInputsId = [].concat(
+			...Object.entries(allFormOptionInputs)
+			.map(option => option[1]
+			.map(input => input.id)
+		));
+
+		// Get id of current displayed optional inputs
+		const currentOptionInputsId = allFormOptionInputs[option].map(input => input.id);
+
+		// Get id of inputs which are not displayed and must be unregistered
+		const hidedOptionInputsId = allOptionalInputsId.filter(item => !currentOptionInputsId.includes(item));
+
+		// Unregister unnecessary inputs
+		unregister(hidedOptionInputsId);
+		
+	}, [option]);
+
+	// Hadle form submit
 	const onSumbit = (data) => {
-		const finalData = db.__prepareFormData(data);
+		console.log(data);
 		setSubmitMessage("Submited successfully");
-		console.log(finalData);
 	};
 
-	//Provides reseting submit message when form had been changed
+	// Handlge form change
 	const onFormChange = () => {
+
+		//Provides reseting submit message when form had been changed
 		if (submitMessage) {
 			setSubmitMessage("")
 		}
 	}
 
+	// Handle option type changing
 	const onOptionChange = (e) => {
+
+		// Update option state to display corresponding inputs
 		setOption(e.target.value);
 	};
 
@@ -47,6 +80,7 @@ function Form() {
 				<form onChange={onFormChange} onSubmit={handleSubmit(onSumbit)} id="product_form">
 					<div className="bg"></div>
 					{
+
 						// Default inputs. SKU, Name, Price
 						allFromInputs.map(({ id, name, required, pattern, minLength, errorInputClassName, placeHolder, inputType }) => {
 							return (
@@ -69,23 +103,24 @@ function Form() {
 						})
 					}
 
+					{/* Option Picker */}
 					<div key={"type"} className="form-field">
 						<label htmlFor="type">Type Switcher</label>
 						<select
-							{...register("type")}
-							value={option}
-							onChange={(e) => onOptionChange(e)}
 							id="productType"
+							{...register("type")}
+							onChange={(e) => onOptionChange(e)}
+							value={option}
 						>
-							<option value="DVD">DVD</option>
-							<option value="Furniture">Furniture</option>
-							<option value="Book">Book</option>
+							<option value="size">DVD</option>
+							<option value="dimensions">Furniture</option>
+							<option value="weight">Book</option>
 						</select>
 					</div>
 
 					{
 						//Special type inputs
-						allFormOptions[option].map(({ id, label, placeholder, type }) => {
+						allFormOptionInputs[option].map(({ id, label, placeholder, type }) => {
 							return (
 								<div key={id} className="form-field">
 									<label htmlFor={id}>{label}</label>

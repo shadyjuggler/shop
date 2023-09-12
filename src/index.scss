@@ -19,7 +19,8 @@ img {
 
 }
 
-a, button {
+a,
+button {
 	font-size: 16px;
 	text-decoration: none;
 	display: block;
@@ -53,6 +54,41 @@ h1 {
 
 .container {
 	position: relative;
-	max-width: 1200px;
+	max-width: 1230px;
+	padding: 0 15px;
 	margin: 0 auto;
+}
+
+
+#burgerIcon {
+	width: 40px;
+	height: 40px;
+	stroke: white;
+}
+
+@media (max-width: 1440px) {
+	.container {
+		justify-content: center;
+	}
+}
+
+@media (max-width: 768px) {
+	.container {
+		h1 {
+			font-size: 24px;
+		}
+		.header {
+			&-burgerMenu {
+				display: flex;
+			}
+			&-btns {
+				a {
+					font-size: 14px;
+				}
+			}
+			&-btns {
+				display: none;
+			}
+		}
+	}
 }

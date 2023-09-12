@@ -1,6 +1,6 @@
 export default function specialFormOptions() {
     return {
-        DVD:
+        size:
             [
                 {
                     id: "size",
@@ -9,7 +9,7 @@ export default function specialFormOptions() {
                     type: "text"
                 }
             ],
-        Furniture:
+        dimensions:
             [
                 {
                     id: "height",
@@ -30,7 +30,7 @@ export default function specialFormOptions() {
                     type: "text"
                 }
             ],
-        Book:
+        weight:
             [
                 {
                     id: "weight",
